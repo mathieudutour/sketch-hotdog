@@ -1,6 +1,6 @@
 # 🌭  Sketch Hot Dog
 
-_Did you ever wonder if your sketch layer was a 🌭?_
+_What would you say if I told you there is a sketch plugin on the market that tell you if your sketch layer is a hotdog or not a hotdog. It is very good and I do not want to work on it any more. You can hire someone else._
 
 ![is it a hotdog](https://user-images.githubusercontent.com/3254314/40763672-7d9179ec-645a-11e8-9c42-a533ac896a40.gif)
 

@@ -1,6 +1,6 @@
 {
   "name": "sketch-hot-dog",
-  "description": "Did you ever wonder if your sketch layer was a 🌭?",
+  "description": "What would you say if I told you there is a sketch plugin on the market that tell you if your sketch layer is a hotdog or not a hotdog. It is very good and I do not want to work on it any more. You can hire someone else.",
   "version": "0.1.0",
   "engines": {
     "sketch": ">=3.0"
