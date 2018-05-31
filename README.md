@@ -6,7 +6,7 @@ _Did you ever wonder if your sketch layer was a 🌭?_
 
 ## 🌭  Installation
 
-_Requires Sketch 49+ and macOS 10.13+
+_Requires Sketch 49+ and macOS 10.13+_
 
 * [Download](https://github.com/mathieudutour/sketch-hotdog/releases/latest) the latest release of the plugin
 * Un-zip
