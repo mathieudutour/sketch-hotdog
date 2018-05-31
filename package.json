@@ -1,0 +1,44 @@
+{
+  "name": "sketch-hot-dog",
+  "description": "Did you ever wonder if your sketch layer was a 🌭?",
+  "version": "0.1.0",
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "skpm": {
+    "name": "Sketch HotDog",
+    "manifest": "src/manifest.json",
+    "main": "hotdog.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ]
+  },
+  "scripts": {
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch --run",
+    "postinstall": "npm run build && skpm-link",
+    "download-datasets": "(rm -rf datasets/hotdog/ || true) && (rm -rf datasets/not_hotdog/ || true) && mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog4.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog3.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog2.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog1.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/hotdog1.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/hotdog2.txt datasets/hotdog/",
+    "train-model": "python scripts/turi-model.py && mv HotdogNotHotdog.mlmodel assets/HotdogNotHotdog.mlmodel",
+    "lint": "find . -name \"*.js\" | grep -v -f .gitignore | grep -v assets | xargs eslint",
+    "prettier:base": "prettier --write",
+    "prettify": "find . -name \"*.ts\" -o -name \"*.js\" | grep -v -f .gitignore | xargs npm run prettier:base"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.5.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-prettier": "^2.6.0"
+  },
+  "author": "Mathieu Dutour <mathieu@dutour.me>",
+  "dependencies": {
+    "@skpm/fs": "^0.1.2",
+    "@skpm/path": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathieudutour/sketch-hotdog.git"
+  }
+}

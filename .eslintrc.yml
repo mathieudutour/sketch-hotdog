@@ -1,0 +1,15 @@
+root: true
+extends:
+  - airbnb-base
+  - prettier
+plugins:
+  - prettier
+globals:
+  __mocha__: false
+  MOPointer: false
+  MLModel: false
+  VNCoreMLModel: false
+  VNCoreMLRequest: false
+  CIImage: false
+  VNImageRequestHandler: false
+  NSURL: false

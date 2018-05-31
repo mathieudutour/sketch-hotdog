@@ -1,0 +1,17 @@
+# build artifacts
+hotdog.sketchplugin
+
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# mac
+.DS_Store
+
+# WebStorm
+.idea
+
+datasets
+old
+assets/HotdogNotHotdog.mlmodel
