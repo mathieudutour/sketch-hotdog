@@ -18,7 +18,7 @@
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
     "postinstall": "npm run build && skpm-link",
-    "download-datasets": "(rm -rf datasets || true) && mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog4.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog3.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog2.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog1.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/hotdog1.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/hotdog2.txt datasets/hotdog/",
+    "download-datasets": "(rm -rf datasets || true) && mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/plants.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/pizza.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/buildings.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/pets.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/hotdog.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/frankfurter.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/chili-dog.txt datasets/hotdog/",
     "train-model": "python scripts/turi-model.py && mv HotdogNotHotdog.mlmodel assets/HotdogNotHotdog.mlmodel",
     "lint": "find . -name \"*.js\" | grep -v node_modules | xargs eslint",
     "prettier:base": "prettier --write",
