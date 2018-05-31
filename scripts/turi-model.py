@@ -1,7 +1,8 @@
 import turicreate as tc
+import os
 
 data = tc.image_analysis.load_images(
-    '/Users/mathieudutour/Projects/sketch-hotdog/datasets/',
+    os.path.abspath('./datasets/'),
     with_path=True
 )
 
