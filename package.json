@@ -20,9 +20,9 @@
     "postinstall": "npm run build && skpm-link",
     "download-datasets": "(rm -rf datasets || true) && mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog4.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog3.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog2.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/not_hotdog1.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/hotdog1.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/hotdog2.txt datasets/hotdog/",
     "train-model": "python scripts/turi-model.py && mv HotdogNotHotdog.mlmodel assets/HotdogNotHotdog.mlmodel",
-    "lint": "find . -name \"*.js\" | grep -v -f .gitignore | grep -v assets | xargs eslint",
+    "lint": "find . -name \"*.js\" | grep -v node_modules | xargs eslint",
     "prettier:base": "prettier --write",
-    "prettify": "find . -name \"*.ts\" -o -name \"*.js\" | grep -v -f .gitignore | xargs npm run prettier:base"
+    "prettify": "find . -name \"*.js\" | grep -v node_modules | xargs npm run prettier:base"
   },
   "devDependencies": {
     "@skpm/builder": "^0.5.2",
