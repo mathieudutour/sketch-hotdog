@@ -1,19 +1,22 @@
 /**
   Download images from a file containing URLS.
-
   The URL file must contain a single URL per line.
  */
-
 const path = require("path");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
 const Stream = require("stream").Transform;
 
+// the first argument is the path to the file containing the URLs
 const inputFile = path.join(process.cwd(), process.argv[2]);
+// the second argument is the path to the folder in which we will store the downloaded images
 const outputDir = path.join(process.cwd(), process.argv[3]);
-const basename = path.basename(inputFile);
 
+// we will prefix the image names by the name of the input file
+const prefix = path.basename(inputFile).replace(path.extname(inputFile), '');
+
+// read the input file and create an array of URLs
 const imageURLS = fs
   .readFileSync(inputFile, "utf8")
   .split("\n")
@@ -23,6 +26,8 @@ const imageURLS = fs
 let successCount = 0;
 let errorCount = 0;
 
+// after each attempt to download an image,
+// print the progress and exit when we reach the end
 function onEnd(err) {
   if (err) {
     errorCount += 1;
@@ -31,7 +36,7 @@ function onEnd(err) {
   }
 
   console.log(
-    `${err ? "☠️" : "✅"}   ${successCount + errorCount} / ${imageURLS.length}`
+    `${err ? "☠️" : "✅"}  ${successCount + errorCount} / ${imageURLS.length}`
   );
 
   if (successCount + errorCount === imageURLS.length) {
@@ -42,8 +47,11 @@ function onEnd(err) {
 }
 
 imageURLS.forEach((url, i) => {
+  // check if we need an http or https request
   const { request } = url.indexOf("http:") === 0 ? http : https;
-  const ext = path.extname(url);
+
+  const imageName = `${prefix}_${i}${path.extname(url)}`;
+
   const r = request(url.trim(), response => {
     const data = new Stream();
 
@@ -55,7 +63,7 @@ imageURLS.forEach((url, i) => {
 
     response.on("end", () => {
       fs.writeFileSync(
-        path.join(outputDir, `${basename}_${i}${ext}`),
+        path.join(outputDir, imageName),
         data.read()
       );
       onEnd();
