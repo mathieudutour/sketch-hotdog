@@ -1,6 +1,7 @@
 import turicreate as tc
 import os
 
+# You might see a bunch of "Not a JPEG file" errors, you can ignore them safely
 print('Loading all the images in the datasets')
 data = tc.image_analysis.load_images(
     os.path.abspath('./datasets/'),
@@ -14,15 +15,15 @@ data['label'] = data['path'].apply(
 
 print(data.groupby('label', [tc.aggregate.COUNT]))
 
-# getting training and test data
-train_data, test_data = data.random_split(0.8)
+# uncomment to show a UI to explore the dataset
+# data.explore()
 
 # train the model using squeezenet
 model = tc.image_classifier.create(
-    train_data,
+    data,
     target='label',
     model='squeezenet_v1.1',
-    max_iterations=100
+    max_iterations=40
 )
 
 # export the model to a coreML file
