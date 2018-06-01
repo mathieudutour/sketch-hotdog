@@ -5,14 +5,14 @@
   "commands": [
     {
       "name": "Is it a 🌭?",
-      "identifier": "my-command-identifier",
-      "script": "./my-command.js"
+      "identifier": "is-it-a-hotdog",
+      "script": "./is-it-a-hotdog.js"
     }
   ],
   "menu": {
     "isRoot": true,
     "items": [
-      "my-command-identifier"
+      "is-it-a-hotdog"
     ]
   }
 }
