@@ -1,3 +1,6 @@
+# Creates a CoreML classifier model 'HotdogNotHotdog.mlmodel'
+# Run the script with: python ./turi-model.py
+
 import turicreate as tc
 import os
 
