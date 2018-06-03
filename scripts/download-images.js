@@ -1,6 +1,16 @@
 /**
   Download images from a file containing URLS.
-  The URL file must contain a single URL per line.
+  The file must contain a single URL per line.
+
+  Usage:
+    node ./download-images.js PATH/TO/IMAGE_NET/FILE.txt PATH/TO/OUTPUT/FOLDER
+
+  It will look something like this:
+  # create the output folders
+  mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/
+  # process different input files
+  node ./download-images.js plants.txt datasets/not_hotdog/
+  node ./download-images.js hotdog.txt datasets/hotdog/
  */
 const path = require("path");
 const fs = require("fs");
