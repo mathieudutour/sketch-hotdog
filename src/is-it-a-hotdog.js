@@ -29,8 +29,8 @@ export default function(context) {
     return;
   }
 
-  const { nsdata } = selectedLayer.image;
-
+  // the macOS framework we need is called `Vision` and is not loaded by default
+  // let's check if it is, and load it otherwise
   if (typeof VNCoreMLModel === "undefined") {
     __mocha__.loadFrameworkWithName("Vision");
   }
@@ -55,25 +55,32 @@ export default function(context) {
     fs.renameSync(tempModelURL.path(), modelURL);
   }
 
+  // load the compiled model
   const model = MLModel.modelWithContentsOfURL_error(
     NSURL.fileURLWithPath(modelURL),
     err
   );
   checkIfErr("reading model", err);
 
+  // transform our model into a Vision model
   const vnModel = VNCoreMLModel.modelForMLModel_error(model, err);
   checkIfErr("creating vn model", err);
 
+  // create a an image analysis request that uses our Core ML model to process images
   const request = VNCoreMLRequest.alloc().initWithModel(vnModel);
   request.imageCropAndScaleOption = 0;
 
-  const ciImage = CIImage.imageWithData(nsdata);
+
+  // VNImageRequestHandler expects a "CIImage".
+  // Luckily, we can create one from our image layer
+  const ciImage = CIImage.imageWithData(selectedLayer.image.nsdata);
 
   const handler = VNImageRequestHandler.alloc().initWithCIImage_options(
     ciImage,
     null
   );
 
+  // let's run our classifier!
   const success = handler.performRequests_error([request], err);
 
   if (success) {
