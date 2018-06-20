@@ -4,6 +4,8 @@ _What would you say if I told you there is a sketch plugin on the market that te
 
 ![is it a hotdog](https://user-images.githubusercontent.com/3254314/40763672-7d9179ec-645a-11e8-9c42-a533ac896a40.gif)
 
+You can read me about it here: [https://blog.sketchapp.com/not-a-hotdog-how-to-build-an-ai-powered-plugin-for-sketch-463ea43c9464](https://blog.sketchapp.com/not-a-hotdog-how-to-build-an-ai-powered-plugin-for-sketch-463ea43c9464).
+
 ## 🌭  Installation
 
 _Requires Sketch 49+ and macOS 10.13+_
