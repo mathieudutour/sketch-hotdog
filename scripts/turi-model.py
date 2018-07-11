@@ -13,7 +13,7 @@ data = tc.image_analysis.load_images(
 
 print('Labelling the images: if it\'s in the hotdog folder then it\'s hotdog')
 data['label'] = data['path'].apply(
-    lambda path: 'hotdog' if '/datasets/hotdog/' in path else 'nothotdog'
+    lambda path: 'sausage' if '/datasets/sausage/' in path else 'notsausage'
 )
 
 print(data.groupby('label', [tc.aggregate.COUNT]))

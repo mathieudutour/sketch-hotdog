@@ -85,8 +85,8 @@ export default function(context) {
 
   if (success) {
     const topResult = request.results()[0];
-    const isHotDog = String(topResult.identifier()) === "hotdog";
-    sketch.UI.message(isHotDog ? "Yep, it's a 🌭" : "Nope ❌");
+    const isHotDog = String(topResult.identifier()) === "sausage";
+    sketch.UI.message(isHotDog ? "Yep, it's a sausage" : "Nope ❌");
   } else {
     checkIfErr("making request", err);
   }

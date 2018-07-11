@@ -4,7 +4,7 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "Is it a 🌭?",
+      "name": "Is it a sausage?",
       "identifier": "is-it-a-hotdog",
       "script": "./is-it-a-hotdog.js"
     }

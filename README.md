@@ -1,4 +1,4 @@
-# 🌭  Sketch Hot Dog
+# 🌭  Sketch Sausage
 
 _What would you say if I told you there is a sketch plugin on the market that tell you if your sketch layer is a hotdog or not a hotdog. It is very good and I do not want to work on it any more. You can hire someone else._
 
@@ -17,7 +17,7 @@ _Requires Sketch 49+ and macOS 10.13+_
 ## 🌭  Usage
 
 * Select an image layer
-* Click on `Plugins > Is it a 🌭?`
+* Click on `Plugins > Is it a sausage?`
 
 ## 🌭  Development Guide
 

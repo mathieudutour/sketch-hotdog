@@ -1,14 +1,14 @@
 {
-  "name": "sketch-hot-dog",
+  "name": "sketch-sausage",
   "description": "What would you say if I told you there is a sketch plugin on the market that tell you if your sketch layer is a hotdog or not a hotdog. It is very good and I do not want to work on it any more. You can hire someone else.",
   "version": "0.1.1",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
-    "name": "Sketch HotDog",
+    "name": "Sketch Sausage",
     "manifest": "src/manifest.json",
-    "main": "hotdog.sketchplugin",
+    "main": "sausage.sketchplugin",
     "assets": [
       "assets/**/*"
     ]
@@ -18,7 +18,7 @@
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
     "postinstall": "npm run build && skpm-link",
-    "download-datasets": "(rm -rf datasets || true) && mkdir -p datasets/hotdog/ && mkdir -p datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/plants.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/pizza.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/buildings.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/pets.txt datasets/not_hotdog/ && node scripts/download-images.js dataset-urls/hotdog.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/frankfurter.txt datasets/hotdog/ && node scripts/download-images.js dataset-urls/chili-dog.txt datasets/hotdog/",
+    "download-datasets": "(rm -rf datasets || true) && mkdir -p datasets/sausage/ && mkdir -p datasets/not_sausage/ && node scripts/download-images.js dataset-urls/plants.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/pizza.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/buildings.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/pets.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/hotdog.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/frankfurter.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/chili-dog.txt datasets/not_sausage/ && node scripts/download-images.js dataset-urls/sausages.txt datasets/sausage/",
     "train-model": "python scripts/turi-model.py && mv HotdogNotHotdog.mlmodel assets/HotdogNotHotdog.mlmodel",
     "lint": "find . -name \"*.js\" | grep -v node_modules | xargs eslint",
     "prettier:base": "prettier --write",
