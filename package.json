@@ -25,7 +25,7 @@
     "prettify": "find . -name \"*.js\" | grep -v node_modules | xargs npm run prettier:base"
   },
   "devDependencies": {
-    "@skpm/builder": "^0.5.2",
+    "@skpm/builder": "^0.5.16",
     "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
